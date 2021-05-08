@@ -17,5 +17,5 @@ None if using binary version, but if you want to compile from src, you will need
 
 ## Config File Guide
 It's very simple to put correct values to the config file. 
-Reminder Interval needs to be a number and needs to end with min (eg. 40min)
-Autostarting With Windows can only be **true** or **false**
+- Reminder Interval needs to be a number and needs to end with min (eg. 40min)
+- Autostarting With Windows can only be **true** or **false**
