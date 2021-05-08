@@ -4,7 +4,7 @@ Incredibly simple yet lifesaving app with a simple goal: GET YOU TO DRINK THE MO
 # THE GUI IS VERY SLOW RN, WILL FIX SOON. JUST WAIT A BIT FOR IT TO POP OPEN!
 
 ## Requirements
-None if using binary version, but if you want to compile from src, you will need Golang installed (v.1.15) and you also need to download the dependencies.
+None if using binary version, but if you want to compile from src, you will need Golang installed (v.1.15) and you also need to download the dependencies. I assume you know what you are doing.
 
 ## How to use
 1. First, compile using
@@ -18,4 +18,4 @@ None if using binary version, but if you want to compile from src, you will need
 ## Config File Guide
 It's very simple to put correct values to the config file. 
 Reminder Interval needs to be a number and needs to end with min (eg. 40min)
-Autostarting With Windows can only be *true* or *false* (without " ")
+Autostarting With Windows can only be **true** or **false**
