@@ -5,10 +5,10 @@ Incredibly simple yet lifesaving app with a simple goal: GET YOU TO DRINK THE MO
 
 ## Requirements
 None if using binary version, but if you want to compile from src, you will need Golang installed (v.1.15) and you also need to download the dependencies. I assume you know what you are doing.
-`go get github.com/emersion/go-autostart`
-`go get gopkg.in/ini.v1`
-`go get github.com/gen2brain/beeep`
-`go get fyne.io/fyne/v2`
+- `go get github.com/emersion/go-autostart`
+- `go get gopkg.in/ini.v1`
+- `go get github.com/gen2brain/beeep`
+- `go get fyne.io/fyne/v2`
 
 ## How to use
 1. First, compile using
