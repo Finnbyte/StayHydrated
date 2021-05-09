@@ -39,15 +39,19 @@ func main() {
 		popup.Notify("StayHydrated", "Succesfully read config!", "")
 		arguments := ReadConfig(configPath)
 
-		interval, _ := strconv.Atoi(strings.Split(arguments[0], "min")[0])
+		autoStart := arguments[1]
 
-		if arguments[1] == "true" {
+		if autoStart {
 			EnableAutostart()
-		}
-
-		if arguments[1] == "false" {
+		} else {
 			DisableAutostart()
 		}
+
+		// TIME IN MINUTES
+		// Remove "min" because it's overcomplicating things and I don't see a point
+		// TODO: ADD OPTION IN UI TO MODIFY INTERVAL
+
+		interval := strconv.Atoi(arguments[0]) 
 
 		reminderToStayHydrated(interval)
 	}

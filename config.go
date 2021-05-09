@@ -8,7 +8,7 @@ import (
 
 func ConfigExists(path string) bool {
 	_, err := os.Stat(path)
-	if err != nil { //if config does not exist, return false
+	if err != nil {
 		return false
 	}
 	return true
@@ -20,15 +20,16 @@ func CreateBlankConfig(path string) {
 		os.Exit(1)
 	}
 
-	cfg, errr := ini.Load(path)
-	if errr != nil {
+	cfg, err := ini.Load(path) // Reuse err variable as there does not seem to be a CONST variable declaration in golang? 
+	if err != nil {
 		popup.Notify("StayHydrated", "Error occured!", "")
 		os.Exit(1)
 	}
 
+	// DEFAULT SETTINGS
 	cfg.NewSection("Settings")
-	cfg.Section("Settings").NewKey("Reminder Interval", "x")
-	cfg.Section("Settings").NewKey("Autostart With Windows", "x")
+	cfg.Section("Settings").NewKey("Reminder Interval", "40")
+	cfg.Section("Settings").NewKey("Autostart With Windows", "false")
 
 	cfg.SaveTo(path)
 }
@@ -44,7 +45,7 @@ func ReadConfig(path string) []string {
 	autostarting, _ := cfg.Section("Settings").GetKey("Autostart With Windows")
 
 	config = append(config, interval.Value())
-	config = append(config, string(autostarting.Value()))
+	config = append(config, string(autostarting.Value())) // why are you turning a string into a string?
 
 	return config
 } 
