@@ -20,7 +20,7 @@ func CreateBlankConfig(path string) {
 		os.Exit(1)
 	}
 
-	cfg, err := ini.Load(path) // Reuse err variable as there does not seem to be a CONST variable declaration in golang? 
+	cfg, err := ini.Load(path) // Reuse err variable as it doesnt seem to be a const variable?
 	if err != nil {
 		popup.Notify("StayHydrated", "Error occured!", "")
 		os.Exit(1)
