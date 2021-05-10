@@ -1,6 +1,7 @@
 package main
 
 import (
+	"strings"
 	"strconv"
 	ini "gopkg.in/ini.v1"
 	"os"
@@ -31,16 +32,15 @@ func CreateBlankConfig(path string) {
 	// ask user about options
 
 	dlgs.Info("StayHydrated", "StayHydrated will ask you some questions now. Answer based on your preferences!")
-	intervalString, _, _ := dlgs.Entry("StayHydrated", "How often reminded?", " ")
+	intervalString, _, _ := dlgs.Entry("StayHydrated", "How often reminded?", "")
 	autostartBool, _ := dlgs.Question("StayHydrated", "Do you want StayHydrated to launch automatically when turning on your computer?", true)
 
 	cfg.NewSection("Settings")
 	cfg.Section("Settings").NewKey("ReminderInterval", intervalString)
 	cfg.Section("Settings").NewKey("AutostartWithWindows", strconv.FormatBool(autostartBool))
-
 	cfg.SaveTo(path)
 
-	interval, err := strconv.Atoi(intervalString)
+	interval, _ := strconv.Atoi(strings.Split(intervalString, "min")[0])
 	if err != nil {
 		popup.Notify("StayHydrated", "Bad interval value!", "misc/logo.png")
 	}
