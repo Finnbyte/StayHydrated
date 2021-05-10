@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/getlantern/systray"
 	"strconv"
 	"path/filepath"
 	"strings"
@@ -33,10 +34,9 @@ func main() {
 
 	if !ConfigExists(configPath) {
 		CreateBlankConfig(configPath)
-		popup.Notify("StayHydrated", "Config file created at " + configPath, "")
-		os.Exit(1)
+		popup.Notify("StayHydrated", "Config file created at " + configPath, "misc/logo.png")
 	} else {
-		popup.Notify("StayHydrated", "Succesfully read config!", "")
+		popup.Notify("StayHydrated", "Succesfully read config!", "misc/logo.png")
 		arguments := ReadConfig(configPath)
 
 		interval, _ := strconv.Atoi(strings.Split(arguments[0], "min")[0])
@@ -51,6 +51,5 @@ func main() {
 
 		reminderToStayHydrated(interval)
 	}
-
-	RunUI()
+	systray.Run(RunUI, QuitUI)
 }
