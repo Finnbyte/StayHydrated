@@ -17,6 +17,6 @@ I wanted to make usability as simple as possible. I definitely think this is an 
 2. Run the app.
 3. It will now open up a few windows where you need to input some needed things eg. reminder message
 4. Once that's done, it will now live in your systray
-<img src="https://user-images.githubusercontent.com/58516858/118126471-137f2a00-b401-11eb-9e10-7affbf71f450.png" width="100" height="50">
+<img src="https://user-images.githubusercontent.com/58516858/118126471-137f2a00-b401-11eb-9e10-7affbf71f450.png" width="200" height="50">
 
 ### IF AFTER ANSWERING TO THE TEXTBOXES THE PROGRAM DOES NOT OPEN, CHECK YOUR CONFIG FILE FOR TYPOS!!! Check CONFIGURING for more information
