@@ -1,20 +1,14 @@
 package main
 
 import (
-	"github.com/emersion/go-autostart"
-	"path/filepath"
 	"os"
+	"github.com/emersion/go-autostart"
 )
 
 func EnableAutostart() {
-	fpath, err := filepath.Abs("./StayHydrated.exe")
-	if err != nil {
-		
-	}
 	app := &autostart.App{
 		Name: "StayHydrated",
 		DisplayName: "Water Drinking Reminder app.",
-		Exec: []string{"start", fpath},
 	}
 
 	if app.IsEnabled() {
@@ -27,14 +21,9 @@ func EnableAutostart() {
 }
 
 func DisableAutostart() {
-	fpath, err := filepath.Abs("./StayHydrated.exe")
-	if err != nil {
-		
-	}
 	app := &autostart.App{
 		Name: "StayHydrated",
 		DisplayName: "Water Drinking Reminder app.",
-		Exec: []string{"start", fpath},
 	}
 
 	if app.IsEnabled() {

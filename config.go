@@ -32,19 +32,23 @@ func CreateBlankConfig(path string) {
 	// ask user about options
 
 	dlgs.Info("StayHydrated", "StayHydrated will ask you some questions now. Answer based on your preferences!")
-	intervalString, _, _ := dlgs.Entry("StayHydrated", "How often reminded?", "")
+	customMessage, _, _ := dlgs.Entry("StayHydrated", "What is the message you want to see?", "It's time to drink!")
+	intervalString, _, _ := dlgs.Entry("StayHydrated", "How often reminded to drink?", "60min")
 	autostartBool, _ := dlgs.Question("StayHydrated", "Do you want StayHydrated to launch automatically when turning on your computer?", true)
 
 	cfg.NewSection("Settings")
 	cfg.Section("Settings").NewKey("ReminderInterval", intervalString)
+	cfg.Section("Settings").NewKey("ReminderMessage", customMessage)
 	cfg.Section("Settings").NewKey("AutostartWithWindows", strconv.FormatBool(autostartBool))
 	cfg.SaveTo(path)
 
 	interval, _ := strconv.Atoi(strings.Split(intervalString, "min")[0])
 	if err != nil {
 		popup.Notify("StayHydrated", "Bad interval value!", "misc/logo.png")
+		os.Exit(0)
 	}
-	reminderToStayHydrated(interval)
+	reminderToStayHydrated(interval, customMessage)
+	EnableAutostart()
 }
 
 func ReadConfig(path string) []string {
@@ -55,9 +59,11 @@ func ReadConfig(path string) []string {
 	}
 
 	interval, _ := cfg.Section("Settings").GetKey("ReminderInterval")
+	customMessage, _ := cfg.Section("Settings").GetKey("ReminderMessage")
 	autostarting, _ := cfg.Section("Settings").GetKey("AutostartWithWindows")
 
 	config = append(config, interval.Value())
+	config = append(config, customMessage.Value())
 	config = append(config, string(autostarting.Value()))
 
 	return config

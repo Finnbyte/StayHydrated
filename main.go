@@ -10,14 +10,14 @@ import (
 	"time"
 )
 
-func reminderToStayHydrated(interval int) {
+func reminderToStayHydrated(interval int, reminderMessage string) {
 	timer := time.NewTicker(time.Duration(interval) * time.Minute)
 	quit := make(chan struct{})
 	go func() {
     	for {
        		select {
         	case <- timer.C:
-            	popup.Notify("StayHydrated", "It's time to get sum hydration!!!", "")
+            	popup.Notify("StayHydrated", reminderMessage, "misc/logo.png")
         	case <- quit:
             	timer.Stop()
             	return
@@ -34,22 +34,22 @@ func main() {
 
 	if !ConfigExists(configPath) {
 		CreateBlankConfig(configPath)
-		popup.Notify("StayHydrated", "Config file created at " + configPath, "misc/logo.png")
+		popup.Notify("StayHydrated", "Config file created at " + configPath + "\nYou can modify it later!", "misc/logo.png")
 	} else {
 		popup.Notify("StayHydrated", "Succesfully read config!", "misc/logo.png")
 		arguments := ReadConfig(configPath)
-
 		interval, _ := strconv.Atoi(strings.Split(arguments[0], "min")[0])
+		customMessage := arguments[1]
 
-		if arguments[1] == "true" {
+		if arguments[2] == "true" {
 			EnableAutostart()
 		}
 
-		if arguments[1] == "false" {
+		if arguments[2] == "false" {
 			DisableAutostart()
 		}
-
-		reminderToStayHydrated(interval)
+		
+		reminderToStayHydrated(interval, customMessage)
 	}
 	systray.Run(RunUI, QuitUI)
 }
