@@ -3,11 +3,11 @@ package main
 import (
 	"os/exec"
 	"github.com/getlantern/systray"
-	"github.com/getlantern/systray/example/icon"
+	"./utils"
 )
 
 func RunUI() {
-	systray.SetIcon(icon.Data)
+	systray.SetIcon(utils.LogoData)
 	systray.SetTooltip("StayHydrated")
 	infoButton := systray.AddMenuItem("About", "Open StayHydrated's Github repository.")
 	quitButton := systray.AddMenuItem("Quit", "Quit StayHydrated.")
