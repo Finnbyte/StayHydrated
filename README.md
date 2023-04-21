@@ -1,6 +1,6 @@
 <img src="https://github.com/Finnbyte/StayHydrated/blob/master/misc/logo.png" width="500" height="500">
 
-# THIS PROJECT IS BROKEN. I HAVE YET TO PUSH A WORKING REWRITE OF THIS PROJECT. DO NOT TRY TO USE UNTIL THAT HAPPENS
+# THIS PROJECT IS BROKEN. I HAVE YET TO PUSH A WORKING REWRITE OF THIS PROJECT.
 
 # StayHydrated
 Incredibly simple yet essential app with a simple goal: GET YOU TO DRINK THE MOST VALUABLE LIQUID IN THE UNIVERSE.
