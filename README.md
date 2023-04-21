@@ -14,7 +14,7 @@ There are two methods of obtaining this piece of software:
 2. The most simple way is to go to https://github.com/Finnbyte/StayHydrated/releases and download StayHydrated.exe from there.
 
 ## USAGE
-I wanted to make usability as simple as possible. I definitely think this is an important app for anyone, and it was important to me that my friends and family who are pretty dumb in things like this, could just easily go to this site, download this app and be easily able to integrate it into their lives. However, full steps to getting this running are still here just in case! :)
+I wanted to make usability as simple as possible. I definitely think this is an important app for anyone, and it was important to me that my friends and family who are not good at tech could just easily go to this site, download this app and be easily able to integrate it into their lives. However, full steps to getting this running are still here just in case! :)
 1. You download/compile this to your computer.
 2. Run the app.
 3. It will now open up a few windows where you need to input some needed things eg. reminder message
